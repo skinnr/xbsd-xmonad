@@ -1,0 +1,2 @@
+#!/bin/sh
+date | cut -c 1-10

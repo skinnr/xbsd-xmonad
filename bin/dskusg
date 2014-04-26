@@ -1,0 +1,2 @@
+#!/bin/sh
+df -h / | awk '{ print substr( $4, 1)}' | grep '[MG]' | awk '{$0=$0"B"}{print}'
