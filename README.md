@@ -1,0 +1,4 @@
+xbsd-xmonad
+===========
+
+xmonad configuration
