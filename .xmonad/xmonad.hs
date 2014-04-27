@@ -124,7 +124,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,                 xK_p     ), warpToScreen 0 1.0 1.0)
 
     -- close focused WindowSet
-    , ((modm,                 xK_x      ), kill)
+    , ((modm,                 xK_x     ), kill)
 
      -- Rotate through the available layout algorithms
     , ((modm,                 xK_Return ), sendMessage NextLayout)
@@ -178,14 +178,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,                 xK_t           ), withFocused $ windows . W.sink)
   
     -- Navigate, Swap and Resize windows using the arrow keys
-    , ((modm,                 xK_Right       ), sendMessage $ Go R)
-    , ((modm,                 xK_Left        ), sendMessage $ Go L)
-    , ((modm,                 xK_Up          ), sendMessage $ Go U)
-    , ((modm,                 xK_Down        ), sendMessage $ Go D)
-    , ((modm .|. shiftMask,   xK_Right       ), sendMessage $ Swap R)
-    , ((modm .|. shiftMask,   xK_Left        ), sendMessage $ Swap L)
-    , ((modm .|. shiftMask,   xK_Up          ), sendMessage $ Swap U)
-    , ((modm .|. shiftMask,   xK_Down        ), sendMessage $ Swap D)
+    , ((modm,                 xK_l           ), sendMessage $ Go R)
+    , ((modm,                 xK_h           ), sendMessage $ Go L)
+    , ((modm,                 xK_k           ), sendMessage $ Go U)
+    , ((modm,                 xK_j           ), sendMessage $ Go D)
+    , ((modm .|. shiftMask,   xK_l           ), sendMessage $ Swap R)
+    , ((modm .|. shiftMask,   xK_h           ), sendMessage $ Swap L)
+    , ((modm .|. shiftMask,   xK_k           ), sendMessage $ Swap U)
+    , ((modm .|. shiftMask,   xK_j           ), sendMessage $ Swap D)
     --, ((modm .|. controlMask, xK_l), sendMessage   Expand)  
     --, ((modm .|. controlMask, xK_h ), sendMessage   Shrink)
     --, ((modm .|. controlMask, xK_k   ), sendMessage   MirrorExpand)
@@ -196,10 +196,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask,   xK_Menu  ), namedScratchpadAction scratchpads "mocp") 
 
     -- Move and resize floating windows
-    , ((modm .|. controlMask, xK_Left        ), withFocused $ snapMove L Nothing)  
-    , ((modm .|. controlMask, xK_Right       ), withFocused $ snapMove R Nothing)  
-    , ((modm .|. controlMask, xK_Up          ), withFocused $ snapMove U Nothing)  
-    , ((modm .|. controlMask, xK_Down        ), withFocused $ snapMove D Nothing)  
+    , ((modm .|. controlMask, xK_h           ), withFocused $ snapMove L Nothing)  
+    , ((modm .|. controlMask, xK_l           ), withFocused $ snapMove R Nothing)  
+    , ((modm .|. controlMask, xK_k           ), withFocused $ snapMove U Nothing)  
+    , ((modm .|. controlMask, xK_j           ), withFocused $ snapMove D Nothing)  
     , ((modm .|. controlMask, xK_minus       ), withFocused (keysResizeWindow (-10,-10) (1/3,1/3)))
     , ((modm .|. controlMask, xK_equal       ), withFocused (keysResizeWindow (10,10) (1/3,1/3))) 
     , ((modm .|. controlMask, xK_period      ), withFocused (keysMoveWindowTo (960, 540) (1/3,1/3))) 
@@ -217,10 +217,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,                 xK_q           ), spawn "xmonad --recompile; xmonad --restart")
 
     -- Cycle Workspaces
-    , ((modm,                 0x1008ff27     ),  nextWS)
-    , ((modm,                 0x1008ff26     ),  prevWS)
-    , ((modm .|. shiftMask,   0x1008ff27     ),  shiftToNext)
-    , ((modm .|. shiftMask,   0x1008ff26     ),  shiftToPrev)
+    , ((modm,                 xK_semicolon   ),  nextWS)
+    , ((modm,                 xK_g           ),  prevWS)
+    , ((modm .|. shiftMask,   xK_semicolon   ),  shiftToNext)
+    , ((modm .|. shiftMask,   xK_g           ),  shiftToPrev)
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     --, ((modMask .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
@@ -336,8 +336,8 @@ manageScratchPad :: ManageHook
 manageScratchPad = namedScratchpadManageHook scratchpads
 
 scratchpads :: NamedScratchpads
-scratchpads = [ NS "rexima" "urxvt -e rexima" (title =? "rexima") (customFloating $ S.RationalRect 0.623 0.777 0.375 0.2)
-  	      , NS "mocp" "urxvt -e mocp" (title =? "mocp") (customFloating $ S.RationalRect 0.498 0.627 0.5 0.35)]
+scratchpads = [ NS "rexima" "urxvtc -e rexima" (title =? "rexima") (customFloating $ S.RationalRect 0.623 0.777 0.375 0.2)
+  	      , NS "mocp" "urxvtc -e mocp" (title =? "mocp") (customFloating $ S.RationalRect 0.498 0.627 0.5 0.35)]
   where 
     role = stringProperty "WM_WINDOW_ROLE"
 
