@@ -69,7 +69,7 @@ import qualified XMonad.StackSet as W
 -- certain contrib modules.
 --
 
-myTerminal      = "urxvt"
+myTerminal      = "urxvtc"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
