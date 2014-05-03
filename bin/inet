@@ -1,0 +1,2 @@
+#!/bin/sh
+/sbin/ifconfig wlan0 | grep inet | awk '{print $2}' | sed 's/addr://' | grep . ;

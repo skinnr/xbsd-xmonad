@@ -1,0 +1,2 @@
+#!/bin/sh
+urxvtc -geometry 25x1+1206+4 -title zshrun -pe -tabbed -e zsh -c "zsh -t"

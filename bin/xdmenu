@@ -1,0 +1,2 @@
+#!/bin/sh
+dmenu_run -nb '#303030' -sb '#afd700' -nf '#9e9e9e' -sf '#005f00' -fn '-xos4-terminus-*-*-normal--12-120-*-72-c-60-*-*'
